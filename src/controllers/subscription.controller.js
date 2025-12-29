@@ -5,9 +5,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
-/* =======================
-   TOGGLE SUBSCRIPTION
-======================= */
+
 const toggleSubscription = asyncHandler(async (req, res) => {
     const { channelId } = req.params;
     const userId = req.user?._id;
@@ -51,9 +49,7 @@ const toggleSubscription = asyncHandler(async (req, res) => {
     );
 });
 
-/* =======================
-   GET CHANNEL SUBSCRIBERS
-======================= */
+
 const getUserChannelSubscribers = asyncHandler(async (req, res) => {
     const { channelId } = req.params;
 
@@ -73,9 +69,7 @@ const getUserChannelSubscribers = asyncHandler(async (req, res) => {
     );
 });
 
-/* =======================
-   GET SUBSCRIBED CHANNELS
-======================= */
+
 const getSubscribedChannels = asyncHandler(async (req, res) => {
     const { subscriberId } = req.params;
 
