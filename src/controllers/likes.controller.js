@@ -4,9 +4,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
-/* =======================
-   TOGGLE VIDEO LIKE
-======================= */
+
 const toggleVideoLike = asyncHandler(async (req, res) => {
     const { videoId } = req.params;
     const userId = req.user?._id;
@@ -31,9 +29,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
     );
 });
 
-/* =======================
-   TOGGLE COMMENT LIKE
-======================= */
+
 const toggleCommentLike = asyncHandler(async (req, res) => {
     const { commentId } = req.params;
     const userId = req.user?._id;
@@ -58,9 +54,7 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
     );
 });
 
-/* =======================
-   TOGGLE TWEET LIKE
-======================= */
+
 const toggleTweetLike = asyncHandler(async (req, res) => {
     const { tweetId } = req.params;
     const userId = req.user?._id;
@@ -85,9 +79,7 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
     );
 });
 
-/* =======================
-   GET LIKED VIDEOS
-======================= */
+
 const getLikedVideos = asyncHandler(async (req, res) => {
     const userId = req.user?._id;
 

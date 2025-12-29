@@ -5,9 +5,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
-/* =======================
-   GET CHANNEL STATS
-======================= */
+
 const getChannelStats = asyncHandler(async (req, res) => {
     const { channelId } = req.params;
 
@@ -47,9 +45,6 @@ const getChannelStats = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, stats, "Channel stats fetched successfully"));
 });
 
-/* =======================
-   GET CHANNEL VIDEOS
-======================= */
 const getChannelVideos = asyncHandler(async (req, res) => {
     const { channelId } = req.params;
 

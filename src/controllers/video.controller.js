@@ -8,7 +8,7 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 
 
 const getAllVideos = asyncHandler(async (req, res) => {
-    // 1. Read query parameters
+
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 10;
     const query = req.query.query || "";
@@ -16,10 +16,9 @@ const getAllVideos = asyncHandler(async (req, res) => {
     const sortType = req.query.sortType || "desc";
     const userId = req.query.userId;
 
-    // 2. Create an empty filter object
     const filter = {};
 
-    // 3. Search logic (optional)
+
     if (query) {
         filter.$or = [
             { title: { $regex: query, $options: "i" } },
@@ -27,21 +26,18 @@ const getAllVideos = asyncHandler(async (req, res) => {
         ];
     }
 
-    // 4. Filter by channel/user (optional)
+
     if (userId) {
         filter.owner = userId;
     }
 
-    // 5. Decide sort order
     const sortOrder = sortType === "asc" ? 1 : -1;
 
-    // 6. Fetch videos from database
     const videos = await Video.find(filter)
         .sort({ [sortBy]: sortOrder })
         .skip((page - 1) * limit)
         .limit(limit);
 
-    // 7. Send response
     return res.status(200).json(
         new ApiResponse(200, videos, "Videos fetched successfully")
     );
